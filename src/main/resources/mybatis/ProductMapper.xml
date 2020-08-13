@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.web.DiliFresh.model.mapper.ProductMapper"   >
+
+	<select id="selectAll" resultMap="result">
+		 select p.productid, p.productname,p.pimg,p.price,p.weight,p.limitcount,p.quantity,p.brand,p.makeaddress,p.freshdate,s.shopname,pro.kindname
+			from product p  LEFT OUTER JOIN productkind pro ON  p.kindid=pro.kindid ,shop s
+			where p.shopid =s.shopid 
+			
+	</select>
+	<resultMap type="Product" id="result">
+		<result property="productid" column="productid"/>
+		<result property="productname" column="productname"/>
+		<result property="price" column="price"/>
+		<result property="pimg" column="pimg"/>
+		<result property="weight" column="weight"/>
+		<result property="limitcount" column="limitcount"/>
+		<result property="quantity" column="quantity"/>
+		<result property="freshdate" column="freshdate"/>
+		<result property="brand" column="brand"/>
+		<result property="makeaddress" column="makeaddress"/>
+		<association property="shop" column="shopid" javaType="Shop" resultMap="sresult"></association>
+		<association property="produckind" column="kindid" javaType="Productkind" resultMap="presult"></association>
+	</resultMap>
+		<resultMap type="Shop" id="sresult">
+		<result property="shopname" column="shopname"/>
+		</resultMap>
+		<resultMap type="Productkind" id="presult">
+		<result property="kindname" column="kindname"/>
+	</resultMap>
+	
+	<select id="selectProductInfo" parameterType="int" resultType="Product">
+		select * from product where productid=#{productid}
+	</select>
+	
+	
+</mapper>
