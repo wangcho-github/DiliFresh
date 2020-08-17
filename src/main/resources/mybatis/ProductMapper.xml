@@ -3,6 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.web.DiliFresh.model.mapper.ProductMapper"   >
+<<<<<<< HEAD
 
 	<select id="selectAll" resultMap="result">
 		 select p.productid, p.productname,p.pimg,p.price,p.weight,p.limitcount,p.quantity,p.brand,p.makeaddress,p.freshdate,s.shopname,pro.kindname
@@ -35,5 +36,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from product where productid=#{productid}
 	</select>
 	
+=======
+	
+	<select id="selectProductInfo" parameterType="int" resultType="Product">
+		select * from product where productid=#{productid}
+	</select>
+>>>>>>> branch 'master' of https://github.com/wangcho-github/DiliFresh
 	
 </mapper>

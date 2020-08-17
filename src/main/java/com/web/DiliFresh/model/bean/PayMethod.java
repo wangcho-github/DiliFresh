@@ -1,9 +1,9 @@
 package com.web.DiliFresh.model.bean;
 
-public class Paymethod {
+public class PayMethod {
+
 	private int paymethodid;
 	private String paymethodname;
-	private Order order;
 	public int getPaymethodid() {
 		return paymethodid;
 	}
@@ -16,11 +16,6 @@ public class Paymethod {
 	public void setPaymethodname(String paymethodname) {
 		this.paymethodname = paymethodname;
 	}
-	public Order getOrder() {
-		return order;
-	}
-	public void setOrder(Order order) {
-		this.order = order;
-	}
+	
 	
 }
